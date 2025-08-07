@@ -1,0 +1,225 @@
+/* D:\ai-smartcare-map\frontend\src\styles\ProjectDescription.css */
+
+/* Keyframes untuk animasi kilauan yang mengalir/bergerak terus menerus */
+@keyframes flowing-shine {
+    0% {
+        transform: translateX(-150%) skewX(-20deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateX(250%) skewX(-20deg);
+        opacity: 0;
+    }
+}
+
+/* Keyframes untuk animasi kilauan berdenyut pada sudut yang lebih hidup */
+@keyframes dynamic-pulse-shine {
+    0% {
+        transform: scale(0.8) rotate(0deg);
+        opacity: 0.2;
+    }
+    25% {
+        transform: scale(1.05) rotate(10deg);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.2) rotate(0deg);
+        opacity: 0.8;
+    }
+    75% {
+        transform: scale(1.05) rotate(-10deg);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(0.8) rotate(0deg);
+        opacity: 0.2;
+    }
+}
+
+
+/* Right Content Area (Project Description / Map) */
+.right-content {
+    flex-grow: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.project-description {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #f0fff0, #e6ffe6);
+    overflow-y: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.description-header {
+    font-size: 2.2em;
+    font-weight: 900;
+    color: #1b5e20;
+    margin-bottom: 30px;
+    text-align: center;
+    line-height: 1.4;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(45deg, #388e3c, #66bb6a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    padding-bottom: 10px;
+    overflow: hidden; /* Penting: sembunyikan bagian kilauan yang keluar */
+}
+
+/* Kilauan di bawah header (Animasi Mengalir) */
+.description-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%; /* Lebar kilauan yang bergerak */
+    height: 3px;
+    background: rgba(165, 214, 167, 0.8); /* Warna kilauan solid yang akan digerakkan */
+    filter: blur(2px); /* Blur lebih halus */
+    border-radius: 50%; /* Tetap bulat */
+    animation: flowing-shine 4s infinite ease-out; /* Animasi kilauan bergerak lebih lama */
+}
+
+.description-section {
+    margin-bottom: 35px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #d4edda;
+    position: relative;
+    overflow: hidden; /* Pastikan kilauan sudut tidak keluar */
+}
+
+/* Kilauan Sudut di Setiap Section (Animasi Berdenyut Dinamis) */
+.description-section::before,
+.description-section::after {
+    content: '';
+    position: absolute;
+    width: 50px; /* Ukuran kilauan lebih besar */
+    height: 50px; /* Ukuran kilauan lebih besar */
+    background: radial-gradient(circle at center, rgba(165, 214, 167, 0.7), transparent 70%); /* Kilauan bulat lebih terang */
+    pointer-events: none;
+    filter: blur(10px); /* Blur lebih kuat untuk efek cahaya */
+    animation: dynamic-pulse-shine 5s infinite alternate ease-in-out; /* Animasi berdenyut lebih dinamis */
+}
+
+.description-section::before {
+    top: -25px; /* Posisikan lebih jauh ke sudut */
+    left: -25px;
+    animation-delay: 0s;
+}
+
+.description-section::after {
+    bottom: -25px; /* Posisikan lebih jauh ke sudut */
+    right: -25px;
+    animation-delay: 2.5s; /* Delay agar tidak bersamaan dengan yang atas */
+}
+
+
+.section-title {
+    font-size: 1.5em;
+    color: #2e7d32;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #a5d6a7;
+    padding-bottom: 8px;
+    font-weight: 700;
+    position: relative;
+    padding-left: 10px;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 80%;
+    background-color: #66bb6a;
+    border-radius: 3px;
+}
+
+.project-description p {
+    color: #3e5241;
+    line-height: 1.7;
+    margin-bottom: 1em;
+}
+
+.project-description ul,
+.project-description ol {
+    padding-left: 25px;
+    margin-top: 15px;
+}
+
+.project-description li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: #4c6b4e;
+}
+
+.step-title {
+    font-weight: bold;
+    color: #28a745;
+}
+
+.code-block {
+    background-color: #e8f5e9;
+    border: 1px solid #c8e6c9;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+    white-space: pre-wrap;
+    word-break: break-all;
+    overflow-x: auto;
+    margin-top: 15px;
+    color: #333;
+}
+
+.code-block code {
+    font-size: 0.95em;
+}
+
+.note {
+    font-style: italic;
+    color: #607d8b;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.description-footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1em;
+    color: #5a7d65;
+    font-weight: 600;
+    padding-top: 20px;
+    border-top: 1px dashed #c8e6c9;
+    position: relative;
+    padding-bottom: 10px;
+    overflow: hidden; /* Penting: sembunyikan bagian kilauan yang keluar */
+}
+
+/* Kilauan di bawah footer (Animasi Mengalir) */
+.description-footer::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%; /* Lebar kilauan yang bergerak */
+    height: 3px;
+    background: rgba(165, 214, 167, 0.8); /* Warna kilauan solid yang akan digerakkan */
+    filter: blur(2px);
+    border-radius: 50%;
+    animation: flowing-shine 4s infinite ease-out; /* Animasi kilauan bergerak lebih lama */
+    animation-delay: 2s; /* Delay agar tidak bersamaan dengan header */
+}

@@ -1,0 +1,61 @@
+/* D:\ai-smartcare-map\frontend\src\styles\MapComponents.css */
+
+/* Map Container Styles */
+.map-container {
+    width: 100%; /* Memastikan peta mengisi seluruh ruang kanan */
+    height: 100%;
+    position: relative; /* Untuk positioning tombol overlay */
+    z-index: 1; /* Pastikan peta di bawah modal */
+}
+
+.map-controls-overlay {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1000; /* Pastikan di atas peta */
+}
+
+.toggle-map-button {
+    padding: 10px 18px; /* Slightly more horizontal padding */
+    background-color: #ffffff; /* Pure white background for a cleaner look */
+    color: #333; /* Darker text for better contrast */
+    border: none; /* Remove border for a sleek appearance */
+    border-radius: 25px; /* More rounded corners for elegance */
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Softer, more pronounced shadow */
+    font-size: 0.95em; /* Slightly larger font size */
+    font-weight: 500; /* Medium font weight */
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+    display: flex; /* Use flexbox for icon and text alignment */
+    align-items: center; /* Vertically center content */
+    gap: 8px; /* Space between icon and text */
+}
+
+.toggle-map-button:hover {
+    background-color: #f0f0f0; /* Light grey on hover */
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2); /* Slightly larger shadow on hover */
+    transform: translateY(-1px); /* Subtle lift effect */
+}
+
+.toggle-map-button:active {
+    background-color: #e0e0e0; /* Darker grey when clicked */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Smaller shadow when active */
+    transform: translateY(0); /* Reset lift effect */
+}
+
+/* Leaflet Popups */
+.leaflet-popup-content-wrapper {
+    border-radius: 8px;
+}
+
+.leaflet-popup-content {
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: #333;
+}
+
+.popup-content-scrollable {
+    max-height: 200px; /* Batasi tinggi popup */
+    overflow-y: auto; /* Aktifkan scroll jika konten terlalu panjang */
+    padding-right: 5px; /* Sedikit padding untuk scrollbar */
+}
